@@ -11,11 +11,9 @@ branch=$(git rev-parse --abbrev-ref HEAD)
 branch=${branch#heads/}
 if [ "$branch" == "master" ]
 then
-  branch="latest"
+  branch=""
 fi
+tag="$repo:main-$commit"
 
-docker build -t $repo:$branch -f .dockerfile --pull --build-arg VERSION=$branch --build-arg VCS_REF=$commit --build-arg BUILD_DATE=$timestamp .
-docker tag $repo:$branch $repo:$commit
-
-docker push $repo:$branch
-docker push $repo:$commit
+docker build -t $tag -f .dockerfile --pull --build-arg VERSION=$branch --build-arg VCS_REF=$commit --build-arg BUILD_DATE=$timestamp .
+docker push $tag

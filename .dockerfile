@@ -1,5 +1,7 @@
 FROM alpine:edge
 
+RUN apk add --no-cache openjdk8-jre
+
 ARG BUILD_DATE
 ARG VCS_REF
 ARG VERSION
@@ -12,7 +14,5 @@ org.label-schema.vcs-ref=$VCS_REF \
 org.label-schema.version=$VERSION \
 net.eqrx.mauzr.cep.version=$VERSION \
 net.eqrx.mauzr.cep.vcs-ref=$VCS_REF
-
-RUN apk add --no-cache openjdk8-jre
 
 COPY target/cep-1-jar-with-dependencies.jar /opt/mauzr-cep.jar
