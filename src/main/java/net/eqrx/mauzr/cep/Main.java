@@ -97,8 +97,10 @@ public class Main {
 		// File connection options
 		MqttConnectOptions options = new MqttConnectOptions();
 		options.setCleanSession(false);
-		options.setUserName((String) mqttHostConfig.get("user"));
-		options.setPassword(((String) mqttHostConfig.get("password")).toCharArray());
+		if (mqttHostConfig.containsKey("password")){
+			options.setUserName((String) mqttHostConfig.get("user"));
+			options.setPassword(((String) mqttHostConfig.get("password")).toCharArray());
+		}
 		options.setKeepAliveInterval(Integer.parseInt((String) mqttConfig.get("keepalive")) / 1000);
 		if (mqttHostConfig.containsKey("ca")) {
 			options.setSocketFactory(TLS.getSocketFactory((String) mqttHostConfig.get("ca")));
