@@ -1,8 +1,7 @@
 mauzr-cep
 =========
 
-Mauzr-CEP integrated [Esper CEP](http://www.espertech.com/esper) 
-into the mauzr system.
+[Esper CEP](http://www.espertech.com/esper) integrated into the mauzr system.
 
 License
 -------
