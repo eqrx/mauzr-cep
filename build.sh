@@ -4,7 +4,7 @@ set -eu
 
 mvn clean compile assembly:single
 
-repo="eqrx/mauzr-cep"
+repo="mauzr/cep"
 timestamp=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
 commit=$(git rev-parse HEAD)
 branch=$(git rev-parse --abbrev-ref HEAD)
